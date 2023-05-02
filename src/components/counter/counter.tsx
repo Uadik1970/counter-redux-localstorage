@@ -35,6 +35,7 @@ export const Counter = () => {
     useEffect(() => {
         loadState()
     }, [])
+
     return (
         <div className={s.counter}>
             {
@@ -84,13 +85,22 @@ export const Counter = () => {
                             >decr
                             </button>
                             <button
-                                className={s.btn}
+                                // className={s.btn}
+                                className={state.currentValue >= state.maxValue ? `${s.btn} ${s.btnDisabled}` : s.btn}
                                 disabled={state.currentValue >= state.maxValue}
                                 onClick={onIncrClickHandler}>
                                 incr
                             </button>
-                            <button className={s.btn} onClick={onResetClickHandler}>reset</button>
-                            <button className={s.btn} onClick={onSetClickHandler}>set</button>
+                            <button
+                                className={s.btn}
+                                onClick={onResetClickHandler}>
+                                reset
+                            </button>
+                            <button
+                                className={s.btn}
+                                onClick={onSetClickHandler}>
+                                set
+                            </button>
                         </div>
                     </div>
             }
